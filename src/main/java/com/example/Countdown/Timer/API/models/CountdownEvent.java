@@ -24,5 +24,9 @@ public class CountdownEvent {
     @Column(nullable = false)
     private LocalDateTime eventDateTime;
     private String eventDescription;
+    private long countdownDays;
+    private long countdownHours;
+    private long countdownMinutes;
+    private long countdownSeconds;
 
 }

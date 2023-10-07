@@ -9,9 +9,13 @@ import lombok.*;
 @ToString
 public class CountdownEventDTO {
 
-//    private long eventID;
+    private long eventID;
     private String eventName;
-    private String eventDate;
-    private String eventTime;
+    private String eventDateTime;
+    private String eventDescription;
+    private long countdownDays;
+    private long countdownHours;
+    private long countdownMinutes;
+    private long countdownSeconds;
 
 }
