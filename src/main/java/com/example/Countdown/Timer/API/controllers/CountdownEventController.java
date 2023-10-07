@@ -2,7 +2,7 @@ package com.example.Countdown.Timer.API.controllers;
 
 import com.example.Countdown.Timer.API.DTOs.CountdownEventDTO;
 import com.example.Countdown.Timer.API.services.CountdownEventService;
-import com.example.Countdown.Timer.API.services.EventNotFoundException;
+import com.example.Countdown.Timer.API.Exceptions.EventNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

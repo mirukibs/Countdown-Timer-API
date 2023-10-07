@@ -2,6 +2,7 @@ package com.example.Countdown.Timer.API.services;
 
 
 import com.example.Countdown.Timer.API.DTOs.CountdownEventDTO;
+import com.example.Countdown.Timer.API.Exceptions.EventNotFoundException;
 import com.example.Countdown.Timer.API.models.CountdownEvent;
 import com.example.Countdown.Timer.API.repositories.CountdownEventRepository;
 import lombok.AllArgsConstructor;
