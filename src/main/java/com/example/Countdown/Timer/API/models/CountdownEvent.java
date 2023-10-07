@@ -18,7 +18,7 @@ public class CountdownEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long eventID;
     @Column(nullable = false)
     private String eventName;
     @Column(nullable = false)
