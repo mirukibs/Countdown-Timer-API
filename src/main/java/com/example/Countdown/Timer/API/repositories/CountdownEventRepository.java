@@ -11,6 +11,6 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public interface CountdownEventRepository extends JpaRepository<CountdownEvent, Long> {
 
-    Optional<CountdownEvent> findByEventId(Long eventID);
+    Optional<CountdownEvent> findByEventID(Long eventID);
 
 }

@@ -87,7 +87,7 @@ public class CountdownEventService {
     public CountdownEventDTO getCountdownEvent(Long eventID) throws EventNotFoundException {
 
         // Retrieve the event by its ID from the database
-        Optional<CountdownEvent> eventOptional = countdownEventRepository.findByEventId(eventID);
+        Optional<CountdownEvent> eventOptional = countdownEventRepository.findByEventID(eventID);
 
         // Event with the given ID was not found
         if (eventOptional.isPresent()) {
