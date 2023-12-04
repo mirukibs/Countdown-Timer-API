@@ -30,5 +30,8 @@ public class CountdownEvent {
     private long countdownHours;
     private long countdownMinutes;
     private long countdownSeconds;
+    @ManyToOne
+    @JoinColumn(name = "user_id")  // Assuming the column name in the database
+    private UserEntity user;
 
 }

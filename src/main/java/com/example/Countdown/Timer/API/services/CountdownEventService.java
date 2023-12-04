@@ -4,9 +4,12 @@ package com.example.Countdown.Timer.API.services;
 import com.example.Countdown.Timer.API.DTOs.CountdownEventDTO;
 import com.example.Countdown.Timer.API.Exceptions.EventNotFoundException;
 import com.example.Countdown.Timer.API.models.CountdownEvent;
+import com.example.Countdown.Timer.API.models.UserEntity;
+import com.example.Countdown.Timer.API.repositories.AppUserRepository;
 import com.example.Countdown.Timer.API.repositories.CountdownEventRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -20,6 +23,7 @@ import java.util.stream.Collectors;
 public class CountdownEventService {
 
     private final CountdownEventRepository countdownEventRepository;
+    private final AppUserRepository appUserRepository;
 
     public CountdownEventDTO createCountdownEvent(CountdownEventDTO countdownEventDTO) {
 
@@ -32,6 +36,10 @@ public class CountdownEventService {
         countdownEvent.setEventDateTime(countdownEventDTO.getEventDateTime());
         countdownEvent.setEventDescription(countdownEventDTO.getEventDescription());
 
+        // Associate the event with the current user
+        UserEntity currentUser = getCurrentUser();
+        countdownEvent.setUser(currentUser);
+
         countdownEventRepository.save(countdownEvent);
 
         calculateCountdown(countdownEvent);
@@ -40,6 +48,12 @@ public class CountdownEventService {
         CountdownEventDTO createdEventDTO = getCountdownEventDTO(countdownEvent);
 
         return createdEventDTO;
+    }
+
+    private UserEntity getCurrentUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return appUserRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalStateException("Current user not found."));
     }
 
 
