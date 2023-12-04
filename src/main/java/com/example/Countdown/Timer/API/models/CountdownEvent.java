@@ -23,7 +23,7 @@ public class CountdownEvent {
     @Column(nullable = false)
     private String eventName;
     @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
+//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
     private LocalDateTime eventDateTime;
     private String eventDescription;
     private long countdownDays;
