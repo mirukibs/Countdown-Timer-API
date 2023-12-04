@@ -159,7 +159,7 @@ public class CountdownEventService {
     }
 
     @Scheduled(fixedRate = 1000) // Execute every 1000 milliseconds (1 second)
-    private void updateCountdowns() {
+    public void updateCountdowns() {
         // Fetch all events from the database and update their countdowns
         List<CountdownEvent> allEvents = countdownEventRepository.findAll();
         allEvents.forEach(this::calculateCountdown);
