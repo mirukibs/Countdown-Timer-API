@@ -6,6 +6,7 @@ import com.example.Countdown.Timer.API.Exceptions.EventNotFoundException;
 import com.example.Countdown.Timer.API.models.CountdownEvent;
 import com.example.Countdown.Timer.API.repositories.CountdownEventRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -28,14 +29,17 @@ public class CountdownEventService {
 
         CountdownEvent countdownEvent = new CountdownEvent();
         countdownEvent.setEventName(countdownEventDTO.getEventName());
-        countdownEvent.setEventDateTime(LocalDateTime.parse(countdownEventDTO.getEventDateTime()));
+        countdownEvent.setEventDateTime(countdownEventDTO.getEventDateTime());
         countdownEvent.setEventDescription(countdownEventDTO.getEventDescription());
 
         countdownEventRepository.save(countdownEvent);
 
         calculateCountdown(countdownEvent);
 
-        return countdownEventDTO;
+        // Create a DTO from the updated entity
+        CountdownEventDTO createdEventDTO = getCountdownEventDTO(countdownEvent);
+
+        return createdEventDTO;
     }
 
 
@@ -50,7 +54,7 @@ public class CountdownEventService {
 
             // Update event details with the provided DTO
             existingEvent.setEventName(updatedEventDTO.getEventName());
-            existingEvent.setEventDateTime(LocalDateTime.parse(updatedEventDTO.getEventDateTime()));
+            existingEvent.setEventDateTime(updatedEventDTO.getEventDateTime());
 
             // Save the updated event to the database
             CountdownEvent updatedEvent = countdownEventRepository.save(existingEvent);
@@ -118,7 +122,7 @@ public class CountdownEventService {
         CountdownEventDTO updatedEventResponse = new CountdownEventDTO();
         updatedEventResponse.setEventID(updatedEvent.getEventID());
         updatedEventResponse.setEventName(updatedEvent.getEventName());
-        updatedEventResponse.setEventDateTime(String.valueOf(updatedEvent.getEventDateTime()));
+        updatedEventResponse.setEventDateTime(updatedEvent.getEventDateTime());
         updatedEventResponse.setCountdownDays(updatedEvent.getCountdownDays());
         updatedEventResponse.setCountdownHours(updatedEvent.getCountdownHours());
         updatedEventResponse.setCountdownMinutes(updatedEvent.getCountdownMinutes());
@@ -130,10 +134,13 @@ public class CountdownEventService {
 
     private void calculateCountdown(CountdownEvent event) {
         LocalDateTime eventDateTime = event.getEventDateTime();
+        System.out.println("eventDateTime: " + eventDateTime);
         LocalDateTime currentDateTime = LocalDateTime.now();
+        System.out.println("currentDateTime: " + currentDateTime);
 
         // Calculate the duration between the current time and the event time
         Duration duration = Duration.between(currentDateTime, eventDateTime);
+        System.out.println("duration: " + duration);
 
         // Extract days, hours, minutes, and seconds from the duration
         long days = duration.toDays();
@@ -149,6 +156,13 @@ public class CountdownEventService {
 
         // Update the event in the database
         countdownEventRepository.save(event);
+    }
+
+    @Scheduled(fixedRate = 1000) // Execute every 1000 milliseconds (1 second)
+    private void updateCountdowns() {
+        // Fetch all events from the database and update their countdowns
+        List<CountdownEvent> allEvents = countdownEventRepository.findAll();
+        allEvents.forEach(this::calculateCountdown);
     }
 
 }

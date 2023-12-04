@@ -27,7 +27,7 @@ public class RegistrationService {
         userEntity.setLastname(request.getLastname());
         userEntity.setUsername(request.getUsername());
         userEntity.setPassword(request.getPassword());
-        Role role = roleRepository.findByName("CUSTOMER").orElseThrow(() -> new RuntimeException("Role not found: CUSTOMER"));
+        Role role = roleRepository.findByName("USER").orElseThrow(() -> new RuntimeException("Role not found: USER"));
         userEntity.setRoles(Collections.singletonList(role));
 
         return appUserService.signUpUser(userEntity);

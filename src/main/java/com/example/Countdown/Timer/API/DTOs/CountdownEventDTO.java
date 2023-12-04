@@ -2,6 +2,8 @@ package com.example.Countdown.Timer.API.DTOs;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -11,7 +13,7 @@ public class CountdownEventDTO {
 
     private long eventID;
     private String eventName;
-    private String eventDateTime;
+    private LocalDateTime eventDateTime;
     private String eventDescription;
     private long countdownDays;
     private long countdownHours;
