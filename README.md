@@ -12,10 +12,6 @@ The Countdown Timer Application is a Spring Boot-based web application that allo
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-- [Usage](#usage)
-    - [Creating a Countdown Event](#creating-a-countdown-event)
-    - [Viewing Countdowns](#viewing-countdowns)
-    - [Push Notifications](#push-notifications)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -30,7 +26,7 @@ The Countdown Timer Application is designed to help users keep track of importan
 - **Event List**: Users can view a list of upcoming events and access event details.
 - **Past Event Archive**: Past events are archived for reference.
 - **Push Notifications**: Users receive push notifications a specified number of days before each event.
-- **User Authentication (Optional)**: Implement user accounts for secure event management (optional).
+- **User Authentication**: Implement user accounts for secure event management.
 
 ## Technologies Used
 
@@ -39,7 +35,7 @@ The Countdown Timer Application is designed to help users keep track of importan
 - **Spring Data JPA**: For database interactions.
 - **MySQL (or your preferred relational database)**: For data storage.
 - **Firebase Cloud Messaging (FCM)**: For sending push notifications (or your preferred push notification service).
-- **Swagger (Optional)**: For API documentation.
+- **Swagger**: For API documentation.
 
 ## Getting Started
 
@@ -76,24 +72,6 @@ The Countdown Timer Application is designed to help users keep track of importan
    ./mvnw clean package
    java -jar target/countdown-timer-0.1.jar
    ```
-
-## Usage
-
-### Creating a Countdown Event
-
-1. Access the application's web interface.
-2. Click on the "Create Event" or "Add Countdown" button.
-3. Fill in the event details, including the event name and date/time.
-4. Click the "Create" or "Save" button to create the event.
-
-### Viewing Countdowns
-
-1. Access the "Upcoming Events" section to see a list of upcoming events.
-2. Click on an event to view the countdown timer and details.
-
-### Push Notifications
-
-1. The application will automatically send push notifications a specified number of days before each event. Make sure to enable push notifications in your device settings.
 
 ## Contributing
 
