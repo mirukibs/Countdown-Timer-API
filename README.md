@@ -34,7 +34,7 @@ The Countdown Timer Application is designed to help users keep track of importan
 - **Spring Boot**: Framework for building Java applications.
 - **Spring Data JPA**: For database interactions.
 - **MySQL (or your preferred relational database)**: For data storage.
-- **Firebase Cloud Messaging (FCM)**: For sending push notifications (or your preferred push notification service).
+- **Firebase Cloud Messaging (Coming soon)**: For sending push notifications (or your preferred push notification service).
 - **Swagger**: For API documentation.
 
 ## Getting Started
