@@ -75,7 +75,7 @@ The Countdown Timer Application is designed to help users keep track of importan
 
 ## API Documentation
 
-The API documentation is available at `http://139.59.4.136:8080/swagger-ui/index.html#/`.
+For detailed API documentation, please refer to [API Documentation](http://139.59.4.136:8080/swagger-ui/index.html#/`).
 
 
 ## Contributing
