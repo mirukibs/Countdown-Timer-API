@@ -26,7 +26,7 @@ The Countdown Timer Application is designed to help users keep track of importan
 - **Event List**: Users can view a list of upcoming events and access event details.
 - **Past Event Archive**: Past events are archived for reference.
 - **Push Notifications**: Users receive push notifications a specified number of days before each event.
-- **User Authentication (Optional)**: Implement user accounts for secure event management (optional).
+- **User Authentication**: Implement user accounts for secure event management.
 
 ## Technologies Used
 
@@ -35,7 +35,7 @@ The Countdown Timer Application is designed to help users keep track of importan
 - **Spring Data JPA**: For database interactions.
 - **MySQL (or your preferred relational database)**: For data storage.
 - **Firebase Cloud Messaging (FCM)**: For sending push notifications (or your preferred push notification service).
-- **Swagger (Optional)**: For API documentation.
+- **Swagger**: For API documentation.
 
 ## Getting Started
 
