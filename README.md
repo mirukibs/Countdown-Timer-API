@@ -25,7 +25,7 @@ The Countdown Timer Application is designed to help users keep track of importan
 - **Countdown Display**: The application calculates and displays countdowns in days, hours, minutes, and seconds for each event.
 - **Event List**: Users can view a list of upcoming events and access event details.
 - **Past Event Archive**: Past events are archived for reference.
-- **Push Notifications**: Users receive push notifications a specified number of days before each event.
+- **Push Notifications (Coming soon)**: Users receive push notifications a specified number of days before each event.
 - **User Authentication**: Implement user accounts for secure event management.
 
 ## Technologies Used
