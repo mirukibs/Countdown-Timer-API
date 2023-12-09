@@ -70,6 +70,10 @@ public class CountdownEventService {
             existingEvent.setEventName(updatedEventDTO.getEventName());
             existingEvent.setEventDateTime(updatedEventDTO.getEventDateTime());
 
+            // Associate the event with the current user
+            UserEntity currentUser = getCurrentUser();
+            existingEvent.setUser(currentUser);
+
             // Save the updated event to the database
             CountdownEvent updatedEvent = countdownEventRepository.save(existingEvent);
 
@@ -92,6 +96,10 @@ public class CountdownEventService {
         if (eventOptional.isPresent()) {
             CountdownEvent event = eventOptional.get();
 
+            // Associate the event with the current user
+            UserEntity currentUser = getCurrentUser();
+            event.setUser(currentUser);
+
             // Delete the event from the database
             countdownEventRepository.delete(event);
         } else {
@@ -110,6 +118,10 @@ public class CountdownEventService {
         // Event with the given ID was not found
         if (eventOptional.isPresent()) {
             CountdownEvent event = eventOptional.get();
+
+            // Associate the event with the current user
+            UserEntity currentUser = getCurrentUser();
+            event.setUser(currentUser);
 
             // An EventDTO to represent the event
 
