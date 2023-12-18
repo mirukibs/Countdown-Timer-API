@@ -73,10 +73,6 @@ The Countdown Timer Application is designed to help users keep track of importan
    java -jar target/countdown-timer-0.1.jar
    ```
 
-// ## API Documentation
-//
-//For detailed API documentation, please refer to [API Documentation](http://139.59.4.136:8080/swagger-ui/index.html#/`).
-
 
 ## Contributing
 
