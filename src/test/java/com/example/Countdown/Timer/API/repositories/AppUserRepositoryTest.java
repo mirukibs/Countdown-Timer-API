@@ -16,21 +16,21 @@ class AppUserRepositoryTest {
     private  AppUserRepository underTest;
 
     @Test
-    void itFindsUserByUsername() {
+    void itShouldFindsUserByUsername() {
 
-        // Given
+        // Given initial state
 
-        String username = "kaysam";
+            String username = "kaysam";
 
-        UserEntity userEntity = new UserEntity(
-                "Kibwana",
-                "Miruru",
-                username,
-                "kaysam@gmail.com",
-                "password"
-        );
+            UserEntity userEntity = new UserEntity(
+                    "Kibwana",
+                    "Miruru",
+                    username,
+                    "kaysam@gmail.com",
+                    "password"
+            );
 
-        underTest.save(userEntity);
+            underTest.save(userEntity);
 
         // When
 
